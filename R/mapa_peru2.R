@@ -30,7 +30,7 @@ mapa_peru2 <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "",
 
   if(n_perfil > 1){
     for(i in 2:n_perfil){
-      lines(linePeru$lon + (i-1)*-3, linePeru$lat, col="gray40")
+      lines(linePeru$lon + (i-1)*-space_perfil, linePeru$lat, col="gray40")
     }
   }
 
