@@ -15,6 +15,7 @@ biom_survey_map_compespecie = function(baseDat, outFolder = ".", outFile = "MapP
   par(mar = c(4,4,1,1), oma = c(0,0,0,0))
   mapa_peru(area_iso = addIsoAreas, n_perfil = n_perfil )
   selDat = baseDat
+  selDat$NOMBRE_COMERCIAL =  iconv(selDat$NOMBRE_COMERCIAL, "ASCII", "UTF-8", sub="")
   sort(unique(selDat[, "NOMBRE_COMERCIAL"]))
   
   capBySp = by(data = selDat[, "REE_NPESESP"], INDICES = selDat[, "NOMBRE_COMERCIAL"], FUN = unique)
@@ -51,7 +52,7 @@ biom_survey_map_compespecie = function(baseDat, outFolder = ".", outFile = "MapP
   xyz = make.xyz(outMatSp$lon,outMatSp$lat,outMatSp$capt,outMatSp$sp)
   xyz$z = xyz$z[,order(names(xyz$z[1,]))]
   
-  draw.pie(xyz$x, xyz$y, xyz$z, radius = 0.2, col=Cols, scale = FALSE)
+  draw.pie(abs(xyz$x)*-1, abs(xyz$y)*-1, xyz$z, radius = 0.2, col=Cols, scale = FALSE)
   
   if(Legend){
     
@@ -65,7 +66,9 @@ biom_survey_map_compespecie = function(baseDat, outFolder = ".", outFile = "MapP
     
   }
  if(save){
+    write.csv(xyz, "CompSp.csv")
     dev.off()
+   
   }
   return(invisible())
 }
