@@ -463,10 +463,10 @@ area_isoparalitoral <- function(dist_costa,latitude)
   areaISO[dc==30&lat==13] <- 3130
   areaISO[dc==40&lat==13] <- 4130
   areaISO[dc==50&lat==13] <- 5130
-  areaISO[dc==60&lat==13] <- 6123
-  areaISO[dc==70&lat==13] <- 7123
-  areaISO[dc==80&lat==13] <- 8123
-  areaISO[dc==90&lat==13] <- 9123
+  areaISO[dc==60&lat==13] <- 6130
+  areaISO[dc==70&lat==13] <- 7130
+  areaISO[dc==80&lat==13] <- 8130
+  areaISO[dc==90&lat==13] <- 9130
   areaISO[dc==100&lat==13] <- 10130
   areaISO[dc==110&lat==13] <- 11130
   areaISO[dc==120&lat==13] <- 12130
